@@ -68,3 +68,4 @@ C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\
 C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\obj\Debug\net8.0\Mission11_Jones.API.sourcelink.json
