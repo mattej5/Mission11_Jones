@@ -1,24 +1,30 @@
 import { useEffect, useState } from "react";
-import { Book } from "./Book";
 
-function BookList() {
+function BookList({ selectedCategories }: { selectedCategories: string[] }) {
     const [books, setBooks] = useState<Book[]>([]);
     const [pageSize, setPageSize] = useState<number>(5);
     const [pageNum, setPageNum] = useState<number>(1);
     const [totalItems, setTotalItems] = useState<number>(0);
     const [totalPages, setTotalPages] = useState<number>(0);
     const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchBooks = async () => {
-            const response = await fetch(`https://localhost:44391/api/Book?pageSize=${pageSize}&pageNum=${pageNum}`);
+            const categoryParams = selectedCategories
+            .map((c) => `bookTypes=${encodeURIComponent(c)}`)
+            .join("&");
+
+            const response = await fetch(`https://localhost:44391/api/Book?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length > 0 ? `&${categoryParams}` : ""}`, 
+                { credentials: 'include' }
+            );
             const data = await response.json();
             setBooks(data.books);
             setTotalItems(data.totalNumBooks);
             setTotalPages(Math.ceil(data.totalNumBooks / pageSize));
         };
         fetchBooks();
-    }, [pageSize, pageNum]);
+    }, [pageSize, pageNum, totalItems, selectedCategories]);
 
     // Sorting Logic
     const sortedBooks = [...books].sort((a, b) => {
@@ -29,8 +35,6 @@ function BookList() {
 
     return (
         <div className="container mt-4">
-            <h1 className="text-center mb-4">Book List</h1>
-
             {/* Sorting Button */}
             <div className="text-center mb-3">
                 <button 
@@ -45,7 +49,7 @@ function BookList() {
             <div className="row justify-content-center">
                 {sortedBooks.map((b) => (
                     <div key={b.isbn} className="col-md-8 col-lg-7 mb-4">
-                        <div className="card border-primary shadow-lg" style={{ minHeight: "300px", minWidth: "40vw" }}>
+                        <div className="card border-primary shadow-lg" style={{ minHeight: "150px", minWidth: "42vw" }}>
                             <div className="card-body">
                                 <h5 className="card-title text-primary">{b.title}</h5>
                                 <div className="table-responsive">
@@ -60,6 +64,16 @@ function BookList() {
                                             <tr><td><strong>Price:</strong></td><td>${b.price}</td></tr>
                                         </tbody>
                                     </table>
+                                    <button
+                                        className='btn btn-success'
+                                        onClick={() =>
+                                            navigate(`/addBook/${b.title}/${b.bookID}/${b.price}`, {
+                                                state: { price: b.price }
+                                            })
+                                        }
+                                    >
+                                        Add to Cart
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -104,5 +118,7 @@ function BookList() {
         </div>
     );
 }
+import { Book } from "../types/Book";
+import { useNavigate } from "react-router-dom";
 
 export default BookList;
