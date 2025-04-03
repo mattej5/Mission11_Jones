@@ -86,45 +86,22 @@ function BookList({ selectedCategories }: { selectedCategories: string[] }) {
                 ))}
             </div>
 
-            {/* Pagination Controls */}
-            <nav className="mt-4">
-                <ul className="pagination justify-content-center">
-                    <li className={`page-item ${pageNum === 1 ? "disabled" : ""}`}>
-                        <button className="page-link" onClick={() => setPageNum(pageNum - 1)}>Previous</button>
-                    </li>
-                    {[...Array(totalPages)].map((_, i) => (
-                        <li key={i + 1} className={`page-item ${pageNum === i + 1 ? "active" : ""}`}>
-                            <button className="page-link" onClick={() => setPageNum(i + 1)}>{i + 1}</button>
-                        </li>
-                    ))}
-                    <li className={`page-item ${pageNum === totalPages ? "disabled" : ""}`}>
-                        <button className="page-link" onClick={() => setPageNum(pageNum + 1)}>Next</button>
-                    </li>
-                </ul>
-            </nav>
-
-            {/* Page Size Selector */}
-            <div className="text-center mt-3">
-                <label className="form-label me-2"><strong>Results per page:</strong></label>
-                <select
-                    className="form-select d-inline-block w-auto"
-                    value={pageSize}
-                    onChange={(e) => {
-                        setPageSize(parseInt(e.target.value));
-                        setPageNum(1);
-                    }}
-                >
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="15">15</option>
-                    <option value="20">20</option>
-                </select>
-            </div>
+            <Pagination
+                totalPages={totalPages}
+                pageSize={pageSize}
+                currentPage={pageNum}
+                onPageChange={(page: number) => setPageNum(page)}
+                onPageSizeChange={(size: number) => {
+                    setPageSize(size);
+                    setPageNum(1); // Reset to first page when page size changes
+                }}
+            />
         </div>
     );
 }
 import { Book } from "../types/Book";
 import { useNavigate } from "react-router-dom";
 import { fetchBooks } from "../api/BooksAPI";
+import Pagination from "./Pagination";
 
 export default BookList;
