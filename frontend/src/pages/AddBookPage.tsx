@@ -1,4 +1,3 @@
-import WelcomeBand from "../components/WelcomeBand";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { CartItem } from "../types/CartItem";
@@ -14,7 +13,7 @@ export default function AddBookPage() {
     const { addToCart } = useCart();
 
     const [quantity, setQuantity] = useState<number>(1);
-    const [price, setPrice] = useState<number>(passedPrice || 0);
+    const [price] = useState<number>(passedPrice || 0);
     const [subtotal, setSubtotal] = useState<number>(price * quantity);
 
     useEffect(() => {
