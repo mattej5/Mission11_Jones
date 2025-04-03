@@ -69,3 +69,10 @@ C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\
 C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\obj\Debug\net8.0\Mission11_Jones.API.sourcelink.json
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.API\bin\Debug\net8.0\Bookstore.sqlite
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\web.config
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\appsettings.Development.json
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\appsettings.json
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\Mission11_Jones.API.deps.json
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\Mission11_Jones.API.runtimeconfig.json
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\Mission11_Jones.API.staticwebassets.endpoints.json

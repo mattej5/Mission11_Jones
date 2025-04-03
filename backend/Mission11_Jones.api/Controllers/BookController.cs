@@ -81,7 +81,7 @@ namespace Mission11_Jones.API.Controllers
         {
             var book = _context.Books.Find(bookId);
 
-            if (book != null)
+            if (book == null)
             {
                 return NotFound(new { message = "Book not found." });
             }

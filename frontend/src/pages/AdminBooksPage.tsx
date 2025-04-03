@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Book } from "../types/Book";
-import { fetchBooks } from "../api/BooksAPI";
+import { deleteBook, fetchBooks } from "../api/BooksAPI";
 import Pagination from "../components/Pagination";
 import NewBookForm from "../components/NewBookForm";
+import EditBookForm from "../components/EditProjectForm";
 
 export default function AdminBooksPage() {
     const [error, setError] = useState<string | null>(null);
@@ -12,6 +13,7 @@ export default function AdminBooksPage() {
     const [pageNum, setPageNum] = useState<number>(1);
     const [totalPages, setTotalPages] = useState<number>(0);
     const [showForm, setShowForm] = useState<boolean>(false);
+    const [editingBook, setEditingBook] = useState<Book | null>(null);
 
     useEffect(() => {
         const loadBooks = async () => {
@@ -28,6 +30,18 @@ export default function AdminBooksPage() {
         };
         loadBooks();
     }, [pageSize, pageNum]);
+
+    const handleDelete = async (bookID: number) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this book?");
+        if (!confirmDelete) return;
+
+        try {
+            await deleteBook(bookID);
+            setBooks((prevBooks) => prevBooks.filter((book) => book.bookID !== bookID));
+        } catch (err) {
+            setError((err as Error).message);
+        }
+    };
 
     if (loading) return <p>Loading books...</p>;
     if (error) return <p>Error: {error}</p>;
@@ -50,7 +64,20 @@ export default function AdminBooksPage() {
                             setBooks(data.books);
                         });
                     }}
-                    OnCancel={() => setShowForm(false)}
+                    onCancel={() => setShowForm(false)}
+                />
+            )}
+
+            {editingBook && (
+                <EditBookForm
+                    book={editingBook}
+                    onSuccess={() => {
+                        setEditingBook(null);
+                        fetchBooks(pageSize, pageNum, []).then((data) => { 
+                            setBooks(data.books);
+                        });
+                    }}
+                    OnCancel={() => setEditingBook(null)}
                 />
             )}
 
@@ -83,12 +110,12 @@ export default function AdminBooksPage() {
                             <td>{book.pageCount}</td>
                             <td>${book.price}</td>
                             <td>
-                                <button className="btn btn-primary btn-sm w-100 mb-1" onClick={() => console.log(`Edit project $(book.bookID)`)}>
+                                <button className="btn btn-primary btn-sm w-100 mb-1" onClick={() => setEditingBook(book)}>
                                     Edit
                                 </button>
                             </td>
                             <td>
-                                <button className="btn btn-danger btn-sm w-100" onClick={() => console.log(`Delete project $(book.bookID)`)}>
+                                <button className="btn btn-danger btn-sm w-100" onClick={() => handleDelete(book.bookID)}>
                                     Delete
                                 </button>
                             </td>

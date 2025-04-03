@@ -7,7 +7,7 @@ interface FetchBooksResponse {
     totalPages: number;
 }
 
-const API_URL = "https://localhost:44391/api/Book";
+const API_URL = "https://mission13-jones-f2hfe0cyb4gjhkfg.eastus-01.azurewebsites.net/api/Book";
 
 export async function fetchBooks(pageSize: number, pageNum: number, selectedCategories: string[]): Promise<FetchBooksResponse> {
 
@@ -68,9 +68,9 @@ export async function addBook(book: Book): Promise<void> {
     }
 }
 
-export async function updateBook(book: Book): Promise<void> {
+export async function updateBook(bookID: number, book: Book): Promise<void> {
     try {
-        const response = await fetch(`${API_URL}/UpdateBook/${book.bookID}`, {
+        const response = await fetch(`${API_URL}/UpdateBook/${bookID}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
