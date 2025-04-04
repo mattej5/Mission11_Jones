@@ -7,7 +7,7 @@ interface FetchBooksResponse {
     totalPages: number;
 }
 
-const API_URL = "https://mission13-jones-f2hfe0cyb4gjhkfg.eastus-01.azurewebsites.net/api/Book";
+const API_URL = "https://mission13jonesbackend-hnh9h6bpafdwhscf.eastus-01.azurewebsites.net/api/Book";
 
 export async function fetchBooks(pageSize: number, pageNum: number, selectedCategories: string[]): Promise<FetchBooksResponse> {
 
