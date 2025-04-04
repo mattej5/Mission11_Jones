@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mission11_Jones.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6b2016290c670980bb47c626e8083654b67ddd9e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4ee89863f5143b86e1bcb2133b87e73b13691f8c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mission11_Jones.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mission11_Jones.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
