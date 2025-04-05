@@ -7,7 +7,7 @@ interface FetchBooksResponse {
     totalPages: number;
 }
 
-const API_URL = "https://mission13jonesbackend-hnh9h6bpafdwhscf.eastus-01.azurewebsites.net/api/Book";
+const API_URL = "https://mission13-jonesbackend-d6gna6e4fxbfdkct.westus2-01.azurewebsites.net/api/Book";
 
 export async function fetchBooks(pageSize: number, pageNum: number, selectedCategories: string[]): Promise<FetchBooksResponse> {
 
@@ -16,8 +16,7 @@ export async function fetchBooks(pageSize: number, pageNum: number, selectedCate
         .map((c) => `bookTypes=${encodeURIComponent(c)}`)
         .join("&");
 
-        const response = await fetch(`${API_URL}?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length > 0 ? `&${categoryParams}` : ""}`, 
-            { credentials: 'include' }
+        const response = await fetch(`${API_URL}?pageSize=${pageSize}&pageNum=${pageNum}${selectedCategories.length > 0 ? `&${categoryParams}` : ""}`
         );
         
         if (!response.ok) {
@@ -36,7 +35,6 @@ export async function deleteBook(bookID: number): Promise<void> {
     try {
         const response = await fetch(`${API_URL}/DeleteBook/${bookID}`, {
             method: "DELETE",
-            credentials: 'include'
         });
 
         if (!response.ok) {
@@ -56,7 +54,6 @@ export async function addBook(book: Book): Promise<void> {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(book),
-            credentials: 'include'
         });
 
         if (!response.ok) {
@@ -76,7 +73,6 @@ export async function updateBook(bookID: number, book: Book): Promise<void> {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(book),
-            credentials: 'include'
         });
 
         if (!response.ok) {

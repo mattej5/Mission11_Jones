@@ -76,3 +76,9 @@ C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\
 C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\Mission11_Jones.API.deps.json
 C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\Mission11_Jones.API.runtimeconfig.json
 C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\Mission11_Jones.API.staticwebassets.endpoints.json
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\publish\web.config
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\publish\appsettings.Development.json
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\publish\appsettings.json
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\publish\Mission11_Jones.API.deps.json
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\publish\Mission11_Jones.API.runtimeconfig.json
+C:\Users\matth\OneDrive\Desktop\Mission11_Jones\backend\Mission11_Jones.api\bin\Debug\net8.0\publish\publish\Mission11_Jones.API.staticwebassets.endpoints.json

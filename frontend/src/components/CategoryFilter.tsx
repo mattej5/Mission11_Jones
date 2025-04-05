@@ -10,11 +10,12 @@ export default function CategoryFilter({
 }) {
     
     const [categories, setCategories] = useState<string[]>([]);
+    const API_URL = "https://mission13-jonesbackend-d6gna6e4fxbfdkct.westus2-01.azurewebsites.net/api/Book";
 
     useEffect(() => {
         const fetchCategories = async () => {
             try {
-                const response = await fetch('https://localhost:44391/api/Book/GetBookCategories');
+                const response = await fetch(`${API_URL}/GetBookCategories`);
                 const data = await response.json();
                 console.log(data);
                 setCategories(data);
